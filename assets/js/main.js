@@ -47,10 +47,10 @@ function isScrolledIntoView(elem) {
         console.log(elemBottom);
         
         
-    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    return ((( elemTop >= docViewTop) && (elemTop <= docViewBottom)) || ((elemBottom >= docViewTop) && (elemBottom <= docViewBottom)) ) ;
 }
 
-$(window).on("scroll", function() {
+$(window).scroll(function() {
 
     $('.section-animate').each(function() {
         if (isScrolledIntoView(this)) {
