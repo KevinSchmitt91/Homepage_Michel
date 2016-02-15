@@ -34,26 +34,30 @@ $(document).ready(function(){
 }); 
 
 
-function isScrolledIntoView(elem)
-{
-    var $elem = $(elem);
-    var $window = $(window);
-
-    var docViewTop = $window.scrollTop();
-    var docViewBottom = docViewTop + $window.height();
-
-    var elemTop = $elem.offset().top;
-    var elemBottom = elemTop + $elem.height();
-
+function isScrolledIntoView(elem) {
+    var $window = $(window),
+        docViewTop = $window.scrollTop(),
+        docViewBottom = docViewTop + $window.height(),
+        elemTop = $(elem).offset().top,
+        elemBottom = elemTop + $(elem).outerHeight();
+        
+        console.log(docViewTop);
+        console.log(docViewBottom);
+        console.log(elemTop);
+        console.log(elemBottom);
+        
+        
     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
 
-$(window).scroll(function () {
-    $('.section-animate').each(function () {
-        if (isScrolledIntoView(this) === true) {
-            $(this).addClass('onview')
+$(window).on("scroll", function() {
+
+    $('.section-animate').each(function() {
+        if (isScrolledIntoView(this)) {
+            $(this).addClass('onview');
         }
     });
+    
 
 });
 
