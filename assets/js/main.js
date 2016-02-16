@@ -41,10 +41,12 @@ function isScrolledIntoView(elem) {
         elemTop = $(elem).offset().top,
         elemBottom = elemTop + $(elem).outerHeight();
         
+        /*
         console.log(docViewTop);
         console.log(docViewBottom);
         console.log(elemTop);
         console.log(elemBottom);
+        */
         
         
     return ((( elemTop >= docViewTop) && (elemTop <= docViewBottom)) || ((elemBottom >= docViewTop) && (elemBottom <= docViewBottom)) ) ;
@@ -60,4 +62,22 @@ $(window).scroll(function() {
     
 
 });
+
+$(window).scroll(function() {
+
+    $('.picture-animate').each(function() {
+        if (isScrolledIntoView(this)) {
+            $(this).addClass('onview').delay(800);
+        }
+    });
+    
+
+});
+
+$(window).scroll(function() {
+	
+	if(isScrolledIntoView('.welcome')) {
+		$('.navbar-inverse').css('background', 'rgba(245,245,220,1)');
+	}
+})
 
