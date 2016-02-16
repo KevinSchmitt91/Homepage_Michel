@@ -1,3 +1,17 @@
+/* 
+	Name:		KS-0.0.1.js
+	Version:	0.0.1
+	Author:		Kevin Schmitt
+	Datum:		16.02.2016
+*/
+
+/* ===================================================== */
+
+/* 
+	Funktion für scrollende Hintergrundbilder
+	-> section[data-type="background"]
+	-> speed="number"
+*/
 $(function() {
 	
 	// Cache the window object
@@ -24,6 +38,11 @@ $(function() {
 	});
 });
 
+/* 
+	Funktion für ein aufklappendes Dropdown
+	Menu beim drüberfahren des Mauscursors
+	-> .dropdown .dropdown-menu
+*/
 $(document).ready(function(){
     $(".dropdown").hover(function(){
         var dropdownMenu = $(this).children(".dropdown-menu");
@@ -33,7 +52,10 @@ $(document).ready(function(){
     });
 }); 
 
-
+/* 
+	Funktion zum abfragen ob der oberste Punkt eines
+	Elementes, den unteren Bildschirmrand erreicht hat
+*/
 function isScrolledIntoView(elem) {
     var $window = $(window),
         docViewTop = $window.scrollTop(),
@@ -41,17 +63,60 @@ function isScrolledIntoView(elem) {
         elemTop = $(elem).offset().top,
         elemBottom = elemTop + $(elem).outerHeight();
         
-        /*
-        console.log(docViewTop);
-        console.log(docViewBottom);
-        console.log(elemTop);
-        console.log(elemBottom);
-        */
-        
-        
     return ((( elemTop >= docViewTop) && (elemTop <= docViewBottom)) || ((elemBottom >= docViewTop) && (elemBottom <= docViewBottom)) ) ;
 }
 
+/* 
+	Funktion zum abfragen ob der oberste Punkt eines
+	Elementes, größer als der obersten Punkt des Bildschirmrands
+	ist
+*/
+function isOnTopOfView(elem) {
+    var $window = $(window),
+        docViewTop = $window.scrollTop(),
+        elemTop = $(elem).offset().top;
+        
+    return docViewTop > elemTop;
+}
+
+/* 
+	Funktion zum abfragen ob der oberste Punkt eines
+	Elementes, kleiner als der oberste Rand des
+	Bildschirms ist
+*/
+function isOverTopOfView(elem) {
+    var $window = $(window),
+        docViewTop = $window.scrollTop(),
+        elemTop = $(elem).offset().top;
+        
+    return docViewTop < elemTop;
+}
+
+/* 
+	Funktion für die Navigations Leiste 
+	Opacity 0.7 --> Opacity 1
+	Opacity 1   --> Opacity 0.7
+*/
+$(window).scroll(function() {
+	
+	if(isOnTopOfView('.welcome')) {
+		$('.navbar-inverse').css('background', 'rgba(245,245,220,1)');
+	}
+	
+	if(isOverTopOfView('.welcome')) {
+		$('.navbar-inverse').css('background', 'rgba(245,245,220,0.7)');
+		$(".navbar-inverse").hover(function() {
+		  $(this).css('background', 'rgba(245,245,220,1)');
+		});
+	}
+})
+
+
+/* 
+	Funktion für eine animierte Section 
+	im Zusammenspiel mit der CSS Klasse
+	onview -> .section-animate.onview
+*/
 $(window).scroll(function() {
 
     $('.section-animate').each(function() {
@@ -63,6 +128,12 @@ $(window).scroll(function() {
 
 });
 
+/* 
+	Funktion für eine animierte Bilder 
+	im Zusammenspiel mit der CSS Klasse
+	onview -> .picture-animate.onview
+	mit einem Delay von 800
+*/
 $(window).scroll(function() {
 
     $('.picture-animate').each(function() {
@@ -74,10 +145,19 @@ $(window).scroll(function() {
 
 });
 
+/* 
+	Funktion für das einblenden der Buttons
+	im Zusammenspiel mit der CSS Klasse
+	onview -> .btn-animate.onview
+*/
 $(window).scroll(function() {
-	
-	if(isScrolledIntoView('.welcome')) {
-		$('.navbar-inverse').css('background', 'rgba(245,245,220,1)');
-	}
-})
+
+    $('.btn-animate').each(function() {
+        if (isScrolledIntoView(this)) {
+            $(this).addClass('onview');
+        }
+    });
+    
+
+});
 
