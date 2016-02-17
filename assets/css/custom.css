@@ -84,6 +84,10 @@ a:hover {
 	line-height: 28px;
 }
 
+.navbar-inverse .navbar-nav>li>a:focus {
+	color: #000;
+}
+
 .navbar-inverse .navbar-nav>.open>a, 
 .navbar-inverse .navbar-nav>.open>a:focus, 
 .navbar-inverse .navbar-nav>.open>a:hover {
@@ -185,31 +189,36 @@ a:hover {
 
 #hero .hero-body {
 	background: rgba(245,245,220,0.7);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	color: #454545;
-	line-height: 100px;
-	padding: 15px 40px;
+	padding: 10px 10px;
+	text-align: left;
 }
 
 #hero .hero-body h3 {
 	font-size: 32px;
+	margin: 5px 10px;
 }
 
 #hero .hero-body h4 {
 	font-size: 24px;
+	margin: 5px 10px;
 }
 
 #hero .hero-body p {
 	line-height: 26px;
-	font-size: 20px;
-	font-weight: 600;
+	font-size: 20px !important;
+	font-weight: 400;
 	text-align: left;
+	color: black;
+	margin: 5px 10px;
 }
 
 #hero .hero-body .btn-danger {
 	color: #454545;
+	width: 100%;
 	background: rgba(143,188,143,0);
 	border: 1px solid #454545;
-	width: 50%;
 	font-size: 16px;
 	font-weight: 600;
 	border-radius: 0%;
@@ -241,8 +250,19 @@ a:hover {
 	min-height: 100px;
 	background: #f5f5dc;
 	letter-spacing: 0.2em;
-	text-transform: ;
 	text-align: center;
+	overflow: hidden;
+	display: table;
+	width: 100%;
+}
+
+.welcome .welcome-body {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.welcome .welcome-body h2 {
+	margin: 10px 0;
 }
 
 /* === ABOUT === */
@@ -426,7 +446,8 @@ a:hover {
 }
 
 #news-list p {
-	font-weight: 600;
+	font-size: 16px;
+	font-weight: 400;
 }
 
 #news-list .btn-news-list {
@@ -439,11 +460,72 @@ a:hover {
 	-ms-border-radius: 0%;
 	font-weight: 600;
 	transition: background 0.3s ease;
+	font-size: 16px;
 }
 
 #news-list .btn-news-list:hover {
 	background: #f5f5dc;
 	transition: background 0.3s ease;
+}
+
+/* === POST === */
+#post {
+	padding: 25px 0;
+}
+
+#post .post-article .title-img {
+	width: 100%;
+	height: auto;
+	border: 5px solid #f5f5dc;
+}
+
+#post .post-pictures .front-image {
+	margin: 35px 0;
+	width: 100%;
+	height: auto;
+	border: 5px solid #f5f5dc;
+}
+
+#post .post-article {
+	padding-top: 50px;
+	padding-bottom: 25px;
+	font-size: 18px;
+}
+
+#post .btn-post {
+	background: transparent;
+	border: 1px solid #454545;
+	color: #454545;
+	border-radius: 0%;
+	-webkit-border-radius: 0%;
+	-moz-border-radius: 0%;
+	-ms-border-radius: 0%;
+	font-weight: 600;
+	transition: background 0.3s ease;
+	font-size: 16px;
+}
+
+#post .btn-post:hover {
+	background: #f5f5dc;
+	transition: background 0.3s ease;
+}
+
+@media (max-width: 767px) {
+	#post .post-article {
+		padding: 0 0;
+	}
+	
+	#post .post-pictures .front-image {
+		margin: 5px 0;
+	}
+	
+	#post .btn-post {
+		margin: 20px 0;
+	}
+	
+	#post .post-article p:first-child {
+		padding-top: 20px;
+	}
 }
 
 /* === IMG HOVER EFFECT === */
