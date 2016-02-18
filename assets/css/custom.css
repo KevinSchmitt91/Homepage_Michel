@@ -48,10 +48,11 @@ a:hover {
 	text-decoration: none;
 }
 
-.divider-red {
-	background: #bb121a;
+.divider-grey {
+	background: #454545;
 	width: 100%;
 	height: 2px;
+	margin-bottom: 10px;
 }
 
 /* === NAVBAR === */
@@ -527,6 +528,106 @@ a:hover {
 		padding-top: 20px;
 	}
 }
+
+/* === CONTACT-SITE === */
+#contact-site {
+	padding: 50px 0;	
+}
+
+#contact-site .contact-info img {
+	width: 100%;
+	height: auto;
+	border: 5px solid #f5f5dc;
+}
+
+#contact-site .contact-info .contact-info-body {
+	text-align: center;
+}
+
+#contact-site .contact-info-content {
+	text-align: center;
+}
+
+
+@media (max-width: 767px) {
+	#contact-site .form-content {
+		padding-top: 25px;
+	}
+}
+
+/* === IMPRESSUM / DATENSCHUTZ === */
+#imprint {
+	padding-top: 25px;
+	padding-bottom: 50px;
+}
+
+#imprint h2 {
+	padding-left: 15px;
+}
+
+#imprint p {
+	font-size: 18px;
+}
+
+/* === FORMS === */
+label {
+	display: block;
+	font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+	color: black;
+	border: none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	display: block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 6px 12px;
+	-webkit-box-shadow: inset 0px 0px 6px 1px rgba(184,184,184,1);
+	-moz-box-shadow: inset 0px 0px 6px 1px rgba(184,184,184,1);
+	box-shadow: inset 0px 0px 6px 1px rgba(184,184,184,1);
+}
+
+input[type="submit"],
+button[type="submit"] {
+	display: inline-block;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	background: transparent;
+	border: 1px solid #454545;
+	color: #454545;
+	border-radius: 0%;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-weight: 600;
+	transition: background 0.3s ease;
+	font-size: 16px;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+	outline: none;
+	background: #f5f5dc;
+	transition: background 0.3s ease;
+	border: 1px solid #454545;
+	color: #454545;
+}
+
 
 /* === IMG HOVER EFFECT === */
 .img-hover-effect:hover {
